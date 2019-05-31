@@ -1,0 +1,59 @@
+{% set name = "awracms" %}
+{% set version = "1.2.0" %}
+
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: ./dist/awrams-1.2.tar.gz
+  sha256: a69876739042bb0f612c54a452b0799b8dabab6c66ec31e9ba40cfbbdc914440
+
+requirements:
+  build:
+    - python 3
+    - setuptools
+    - nose
+    - pydoe
+
+  run:
+    - python =3.6
+    - numpy
+    - scipy
+    - matplotlib
+    - pandas
+    - h5py
+    - cffi
+    - libnetcdf
+    - netcdf4
+    - libgdal # [linux]
+    - gdal # [linux]
+    - anaconda::libgdal =2.3.2  # [windows]
+    - anaconda::gdal =2.3.2  # [windows]
+    - dask
+    - seaborn
+    - basemap
+    - cartopy
+    - paramiko
+    - SALib
+    - msgpack-python
+    - mpi4py
+    - pydoe
+
+about:
+  home: https://github.com/awracms/awra_cms
+  license: AWRA license
+  summary: 'Australian Water Resources Assessment (AWRA) Community Modelling System'
+
+  description: |
+    The AWRA modelling system (AWRAMS) has been developed by the Commonwealth Scientific
+    and Industrial Research Organisation (CSIRO) and the Bureau towards fulfilling the Bureaus
+    water reporting requirements specified in the Water Act (2007).
+
+  doc_url: https://github.com/awracms/awra_cms
+  dev_url: https://github.com/awracms/awra_cms
+
+extra:
+  recipe-maintainers:
+    - bianca.gibson@bom.gov.au
